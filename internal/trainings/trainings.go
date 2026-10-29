@@ -26,7 +26,7 @@ func (t *Training) Parse(datastring string) (err error) {
 
 	steps, err := strconv.Atoi(parts[0])
 	if err != nil {
-		return fmt.Errorf("не удалось разобрать кол-во шагов: %w, err")
+		return fmt.Errorf("не удалось разобрать кол-во шагов: %w", err)
 	}
 	if steps <= 0 {
 		return errors.New("кол-во шагов должно быть больше 0")
@@ -34,7 +34,7 @@ func (t *Training) Parse(datastring string) (err error) {
 
 	duration, err := time.ParseDuration(parts[2])
 	if err != nil {
-		return fmt.Errorf("не удалось разобрать длительность: %w, err")
+		return fmt.Errorf("не удалось разобрать длительность: %w", err)
 	}
 	if duration <= 0 {
 		return errors.New("длительность должна быть больше 0")
